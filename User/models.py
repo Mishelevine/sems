@@ -1,17 +1,8 @@
 import passlib.hash
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String
+from database import Base
 from sqlalchemy.orm import relationship
 
-from database import Base
-
-class SystemRole(Base):
-    __tablename__ = "system_roles"
-
-    id = Column(Integer, primary_key=True)
-    role_name = Column(String(50), nullable=False)
-    
-    users = relationship("User", back_populates="system_role", cascade='save-update, merge, delete')
-    
 class User(Base):
     __tablename__ = "users"
 
