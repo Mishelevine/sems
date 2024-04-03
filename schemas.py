@@ -4,13 +4,15 @@ class UserBase(BaseModel):
     first_name: str
     last_name: str
     paternity: str
+    email: str
 
 class UserCreate(UserBase):
+    hashed_password: str
     pass
 
 class User(UserBase):
     id: int
-    role_id: int
+    system_role_id: int
 
     class Config:
         orm_mode = True
@@ -24,18 +26,5 @@ class SystemRoleCreate(SystemRoleBase):
 class SystemRole(SystemRoleBase):
     id: int
 
-    class Config:
-        orm_mode = True
-
-class UserDataBase(BaseModel):
-    login: str
-    email: str
-
-class UserDataCreate(UserDataBase):
-    password: str
-    
-class UserData(UserDataBase):
-    user_id: int
-    
     class Config:
         orm_mode = True
