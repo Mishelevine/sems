@@ -14,6 +14,7 @@ class User(Base):
     paternity = Column(String(50), nullable=True)
     system_role_id = Column(Integer, ForeignKey('system_roles.id', ondelete='CASCADE'), default=1)
     
+    reviews = relationship("SystemReview", back_populates="user")
     system_role = relationship("SystemRole", back_populates="users", cascade='save-update, merge, delete', passive_deletes=True)
     
     def verify_password(self, password: str):

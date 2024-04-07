@@ -12,7 +12,9 @@ sys.path.insert(0, dirname(dirname(dirname(abspath(__file__)))))
 
 from database import Base
 from SystemRole.models import SystemRole
+from SystemReview.models import SystemReview
 from User.models import User
+from Event.models import Event
 from config import settings
 
 # this is the Alembic Config object, which provides
